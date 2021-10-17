@@ -1,4 +1,4 @@
-# HorriblePP.Dark.Mode
+# HorriblePP Dark Mode
 Changes the color scheme and default background colors to darker variations of the HorriblePP website
 
 ## How to make it all work
@@ -7,22 +7,19 @@ like Chrome/Chromium/Canary/Nightly, Opera GX, Chromium Edge, Safari, or a lates
 
 1. Add the Stylus Extension
 
-    On [Mozilla Firefox](https://addons.mozilla.org/firefox/addon/styl-us)
-    On [Google Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
-
+    - On [Mozilla Firefox](https://addons.mozilla.org/firefox/addon/styl-us)
+    - On [Google Chrome](https://chrome.google.com/webstore/detail/stylus/clngdbkpkpeebahjckkjfobafhncgmne)
     - If you're on a different webkit browser
 
-        First you'll have to set up your browser to be able to install extensions from other stores,
+        - First you'll have to set up your browser to be able to install extensions from other stores,
         since those two are the only versions/extensions that are actually stable and work as far as I have seen.
-
-        After that, visit the Chrome store link and install the extension.
+        - After that, visit the Chrome store link and install the extension.
 
 2. Install the Style
 
     - Visit [UserStyles](https://userstyles.org/styles/216576/horriblepp-dark-mode?utm_campaign=stylish_stylepage)
     - Click on "Install Style"
-    
-    If everything works, you should see the style being updated in real time while visiting HPP
+    - If everything works, you should see the style being updated in real time while visiting HPP
 
 ## PS #1
 
