@@ -12,7 +12,7 @@
 @name:pt-BR         HorriblePP & Disqus Modo Escuro
 @namespace          https://horriblepp.info
 @run-at             document-end
-@version	        1.0.1
+@version	        1.0.2
 ==/UserStyle== */
 
 @-moz-document regexp("http.*") {
@@ -38,7 +38,7 @@
         --hpp-bg-quinary: #585858;
         --hpp-bg-textarea: #2a2e2e;
         --hpp-box-shadow-color: #181818;
-        --hpp-title: "Gigantic PP";
+        --hpp-title: "Humongous PP";
         --hpp-mod-title: "Weeb Master";
         --hpp-motd-title: "Featured Retard";
         --hpp-year: "2021";
@@ -79,6 +79,9 @@
             REMEMBER TO LEAVE A SEMICOLON (;) AT THE END
         */
         content: url(https://i.postimg.cc/RhcS86fQ/aether-lumine-paimon-4k-hd-genshin-impact.jpg);
+        max-width: 100%;
+        max-height: 100%;
+        overflow-x: hidden;
         display: flex;
         justify-content: center;
         position: relative;
@@ -91,6 +94,7 @@
         font-weight: bold;
         text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black,
             -1px 1px 0 black;
+        text-align: center;
         color: var(--hpp-text-white);
         left: 50%;
         top: calc(50% - 3em);
@@ -160,14 +164,13 @@
         border-radius: 0px;
     }
 
-    .highlighted .author {
-        font-size: 0px;
+    .highlighted-comment-header {
+        font-size: 0px !important;
     }
 
-    .highlighted .author::before {
-        font-size: initial;
+    .highlighted-comment-header::before {
+        font-size: initial !important;
         content: var(--hpp-motd-title);
-        color: var(--hpp-text-white);
     }
 
     .highlighted-post .highlighted .post-content,
