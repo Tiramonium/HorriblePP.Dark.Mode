@@ -12,7 +12,7 @@
 @name:pt-BR         HorriblePP & Disqus Modo Escuro
 @namespace          https://horriblepp.info
 @run-at             document-end
-@version	        1.0.0
+@version	        1.0.1
 ==/UserStyle== */
 
 @-moz-document regexp("http.*") {
@@ -30,6 +30,7 @@
         --hpp-text-white: #eeeeee;
         --hpp-text-gray: #dddddd;
         --hpp-link-white: #ffffff;
+        --hpp-link-visited: #ed565f;
         --hpp-bg-primary: #282828;
         --hpp-bg-secondary: #1c1c1c;
         --hpp-bg-tertiary: #080808;
@@ -95,6 +96,10 @@
         top: calc(50% - 3em);
         transform: translateX(-50%);
         z-index: 2;
+    }
+
+    a:visited {
+        color: var(--hpp-link-visited) !important;
     }
 }
 
@@ -420,6 +425,10 @@
         background-color: var(--hpp-highlight-color);
     }
 
+    .edit-time-message {
+        color: var(--hpp-highlight-color);
+    }
+
     .post-content .post-message a {
         color: var(--hpp-highlight-color) !important;
     }
@@ -509,5 +518,9 @@
 
     .children .show-children-wrapper .show-children {
         color: var(--hpp-highlight-color);
+    }
+
+    a:visited {
+        color: var(--hpp-link-visited) !important;
     }
 }
