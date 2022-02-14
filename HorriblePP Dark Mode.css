@@ -12,7 +12,7 @@
 @name:pt-BR         HorriblePP & Disqus Modo Escuro
 @namespace          https://horriblepp.info
 @run-at             document-end
-@version	        1.0.2
+@version	        1.0.3
 ==/UserStyle== */
 
 @-moz-document regexp("http.*") {
@@ -26,7 +26,7 @@
 
             REMEMBER TO LEAVE A SEMICOLON (;) AT THE END
         */
-        --hpp-highlight-color: #00ffff;
+        --hpp-highlight-color: #8a7ff8;
         --hpp-text-white: #eeeeee;
         --hpp-text-gray: #dddddd;
         --hpp-link-white: #ffffff;
@@ -38,11 +38,11 @@
         --hpp-bg-quinary: #585858;
         --hpp-bg-textarea: #2a2e2e;
         --hpp-box-shadow-color: #181818;
-        --hpp-title: "Humongous PP";
+        --hpp-title: "Moonlit PP";
         --hpp-mod-title: "Weeb Master";
-        --hpp-motd-title: "Featured Retard";
-        --hpp-year: "2021";
-        --hpp-last-update: "October 16, 2021";
+        --hpp-motd-title: "Featured Shitpost";
+        --hpp-year: "2022";
+        --hpp-last-update: "February 14, 2022";
     }
 }
 
@@ -78,7 +78,7 @@
 
             REMEMBER TO LEAVE A SEMICOLON (;) AT THE END
         */
-        content: url(https://i.postimg.cc/RhcS86fQ/aether-lumine-paimon-4k-hd-genshin-impact.jpg);
+        content: url(https://proximonivel.pt/wp-content/uploads/2021/05/kimetsu-no-yaiba-Shinobu-demon-slayer-pn-n.jpg);
         max-width: 100%;
         max-height: 100%;
         overflow-x: hidden;
@@ -523,7 +523,7 @@
         color: var(--hpp-highlight-color);
     }
 
-    a:visited {
+    .post-message a:visited {
         color: var(--hpp-link-visited) !important;
     }
 }
