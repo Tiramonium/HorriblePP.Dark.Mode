@@ -42,5 +42,5 @@ so in case it chooses to act up and stop working as it was supposed to, you shou
 
     - Click on "Code" and "Download zip" or clone the project if you know how
     - On Stylus "Manage Installed Styles" page, on the "Actions" section on the left navbar, click on "Write New Style"
-    - Click on "Import" and find the file you downloaded or cloned
+    - Click on "Import", find the _HorriblePP Dark Mode.css_ file you downloaded or cloned, copy and paste all of it in the dialog that was shown
     - Name it "HorriblePP Dark Mode" and Save
