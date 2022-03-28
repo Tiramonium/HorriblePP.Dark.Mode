@@ -12,7 +12,7 @@
 @name:pt-BR         HorriblePP & Disqus Modo Escuro
 @namespace          https://horriblepp.info
 @run-at             document-end
-@version	        1.0.3
+@version	        1.0.4
 ==/UserStyle== */
 
 @-moz-document regexp("http.*") {
@@ -430,6 +430,10 @@
 
     .edit-time-message {
         color: var(--hpp-highlight-color);
+    }
+
+    .post.minimized {
+        display: none;
     }
 
     .post-content .post-message a {
