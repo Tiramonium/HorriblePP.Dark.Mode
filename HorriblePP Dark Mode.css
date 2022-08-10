@@ -12,7 +12,7 @@
 @name:pt-BR         HorriblePP & Disqus Modo Escuro
 @namespace          https://horriblepp.info
 @run-at             document-end
-@version	        1.0.5
+@version	        1.0.6
 ==/UserStyle== */
 
 @-moz-document regexp("http.*") {
@@ -26,7 +26,7 @@
 
             REMEMBER TO LEAVE A SEMICOLON (;) AT THE END
         */
-        --hpp-highlight-color: #fea3ab;
+        --hpp-highlight-color: #f9e2b2;
         --hpp-text-white: #eeeeee;
         --hpp-text-gray: #dddddd;
         --hpp-link-white: #ffffff;
@@ -38,11 +38,11 @@
         --hpp-bg-quinary: #585858;
         --hpp-bg-textarea: #2a2e2e;
         --hpp-box-shadow-color: #181818;
-        --hpp-title: "Utopia PP";
-        --hpp-mod-title: "Family Man Essentials";
+        --hpp-title: "Passion PP";
+        --hpp-mod-title: "Cupid";
         --hpp-motd-title: "Featured Shitpost";
         --hpp-year: "2022";
-        --hpp-last-update: "May 21st, 2022";
+        --hpp-last-update: "August 9th, 2022";
     }
 }
 
@@ -78,7 +78,7 @@
 
             REMEMBER TO LEAVE A SEMICOLON (;) AT THE END
         */
-        content: url(https://i.postimg.cc/MTY1VRbw/AN-Spy-x-Family.webp);
+        content: url(https://i.postimg.cc/XJTpB30W/thumb-1920-626752.jpg);
         max-width: 100%;
         max-height: 100%;
         overflow-x: hidden;
@@ -529,5 +529,9 @@
 
     .post-message a:visited {
         color: var(--hpp-link-visited) !important;
+    }
+
+    .avatar .user {
+        background: var(--hpp-bg-secondary) !important;
     }
 }
