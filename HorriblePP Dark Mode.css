@@ -12,7 +12,7 @@
 @name:pt-BR         HorriblePP & Disqus Modo Escuro
 @namespace          https://horriblepp.info
 @run-at             document-end
-@version	        1.0.6.1
+@version	        1.0.6.2
 ==/UserStyle== */
 
 @-moz-document regexp("http.*") {
@@ -72,6 +72,16 @@
 
     .navbar-dark .navbar-nav .nav-link:hover {
         color: var(--hpp-highlight-color);
+    }
+
+    #header {
+        position: initial;
+        top: initial;
+        right: initial;
+        text-align: right;
+        margin: 0;
+        padding: 25px 10%;
+        background-color: var(--hpp-bg-secondary);
     }
 
     #header a {
