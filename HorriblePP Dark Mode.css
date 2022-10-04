@@ -12,7 +12,7 @@
 @name:pt-BR         HorriblePP & Disqus Modo Escuro
 @namespace          https://horriblepp.info
 @run-at             document-end
-@version	        1.0.6.2
+@version	        1.0.7
 ==/UserStyle== */
 
 @-moz-document regexp("http.*") {
@@ -20,17 +20,18 @@
         /*
             TO SIMPLIFY THIS EVEN FURTHER, I MOVED ALL VARIABLES INTO A SINGLE "ROOT" SECTION SO THERE'S NO CONFUSION ABOUT IT
 
-            CHANGE THE "--hpp-highlight-color" FOR THE PREDOMINANT COLOR OF YOUR WAIFU'S IMAGE, SO YOU HAVE A CONSISTENT COLOR ACROSS THE ENTIRE HS WEBSITE
+            CHANGE "--hpp-highlight-color" AND "--hpp-bg-highlight-color" FOR THE PREDOMINANT COLORS OF YOUR WAIFU'S IMAGE, SO YOU HAVE A CONSISTENT COLOR ACROSS THE ENTIRE WEBSITE
             USE A COLOR PICKER BROWSER EXTENSION <https://chrome.google.com/webstore/detail/color-by-fardos/iibpgpkhpfggipbacjfeijkloidhmiei?hl=pt-BR>
             TO PICK YOUR DESIRED COLOR FROM THE IMAGE, THEN COPY AND PASTE THE COLOR HEXADECIMAL NUMBER (E.G. #123456) OR RGB ( rgb(0-255, 0-255, 0-255) ) BELOW
 
             REMEMBER TO LEAVE A SEMICOLON (;) AT THE END
         */
-        --hpp-highlight-color: #f9e2b2;
         --hpp-text-white: #eeeeee;
         --hpp-text-gray: #dddddd;
         --hpp-link-white: #ffffff;
         --hpp-link-visited: #ed565f;
+        --hpp-highlight-color: #03fed3;
+        --hpp-bg-highlight-color: #f5ff04;
         --hpp-bg-primary: #282828;
         --hpp-bg-secondary: #1c1c1c;
         --hpp-bg-tertiary: #080808;
@@ -38,11 +39,11 @@
         --hpp-bg-quinary: #585858;
         --hpp-bg-textarea: #2a2e2e;
         --hpp-box-shadow-color: #181818;
-        --hpp-title: "Passion PP";
-        --hpp-mod-title: "Cupid";
-        --hpp-motd-title: "Featured Shitpost";
-        --hpp-year: "2022";
-        --hpp-last-update: "August 9th, 2022";
+        --hpp-title: "Cybernated PP 2077";
+        --hpp-mod-title: "Arasaka Corpo";
+        --hpp-motd-title: "Hologram Billboard Ad";
+        --hpp-year: "2077";
+        --hpp-last-update: "October 4th, 2022";
         /*
             THIS IS YOUR WAIFU'S IMAGE URL <https://en.wikipedia.org/wiki/URL>.
             REPLACE EVERYTHING AFTER "--hpp-banner-image: " FOR "none" IF YOU WISH TO REMOVE IT,
@@ -50,13 +51,14 @@
 
             REMEMBER TO LEAVE A SEMICOLON (;) AT THE END
         */
-        --hpp-banner-image: url(https://i.postimg.cc/XJTpB30W/thumb-1920-626752.jpg);
+        --hpp-banner-image: url(https://i.postimg.cc/V6kNv8rF/rebecca-cyberpunk-edgerunners-art-4k-wallpaper-uhdpaper-com-601-1-i.jpg);
     }
 }
 
-@-moz-document url-prefix("https://horriblepp.info"), regexp("https:\/\/beta.horriblepp.info\/?[^white]") {
+@-moz-document url-prefix("https://horriblepp.info"), regexp("https:\/\/beta.horriblepp.info\/?[^white]")
+{
     .navbar-brand strong {
-        content: '';
+        content: "";
         font-size: 0px;
     }
 
@@ -100,9 +102,10 @@
     #body::before,
     .container-fluid::before {
         content: var(--hpp-banner-image);
+        width: auto;
         max-width: 100%;
-        max-height: 100%;
-        overflow-x: hidden;
+        height: auto;
+        overflow: hidden;
         display: flex;
         justify-content: center;
         position: relative;
@@ -114,14 +117,36 @@
         position: absolute;
         font-size: 3em;
         font-weight: bold;
-        text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black,
-            -1px 1px 0 black;
+        text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
         text-align: center;
         color: var(--hpp-text-white);
         left: 50%;
-        top: calc(50% - 3em);
         transform: translateX(-50%);
         z-index: 2;
+    }
+
+    @media screen and (max-width: 1199px) {
+        #body::before,
+        .container-fluid::before {
+            max-height: 35vh;
+        }
+
+        #body::after,
+        .container-fluid::after {
+            top: calc(35vh - 3em);
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        #body::before,
+        .container-fluid::before {
+            max-height: 100%;
+        }
+
+        #body::after,
+        .container-fluid::after {
+            top: calc(50% - 3em);
+        }
     }
 
     a:not(.nav-link):not(#discordlink):visited {
@@ -129,7 +154,8 @@
     }
 }
 
-@-moz-document url("https://freesecure.timeanddate.com/clock/i7hlsocf/n248/fs26/fceee/tct/pct/th1/ta1") {
+@-moz-document url("https://freesecure.timeanddate.com/clock/i7hlsocf/n248/fs26/fceee/tct/pct/th1/ta1")
+{
     #c1 {
         background-color: var(--hpp-bg-secondary);
     }
@@ -147,7 +173,8 @@
     }
 }
 
-@-moz-document url-prefix("https://disqus.com/embed/comments/?base=default&f=horriblepp") {
+@-moz-document url-prefix("https://disqus.com/embed/comments/?base=default&f=horriblepp")
+{
     body {
         color: var(--hpp-text-white);
     }
@@ -233,7 +260,7 @@
     }
 
     .active .publisher-nav-color::after {
-        background: var(--hpp-highlight-color) !important;
+        background: var(--hpp-bg-highlight-color) !important;
     }
 
     .community-name,
@@ -313,7 +340,7 @@
     }
 
     .thread-likes .label-count {
-        background-color: var(--hpp-highlight-color);
+        background-color: var(--hpp-bg-highlight-color);
         color: var(--hpp-link-white);
     }
 
@@ -413,7 +440,8 @@
     .dark .alert.alert--realtime,
     .dark .alert.info,
     .dark .alert.success {
-        background: var(--hpp-highlight-color);
+        background: var(--hpp-bg-highlight-color);
+        color: var(--hpp-highlight-color);
     }
 
     .profile-card .tooltip,
@@ -436,7 +464,7 @@
     }
 
     .profile-card .tooltip__footer .follow-btn:hover {
-        background-color: var(--hpp-highlight-color);
+        background-color: var(--hpp-bg-highlight-color);
         color: var(--hpp-link-white);
     }
 
@@ -451,7 +479,7 @@
 
     .realtime .indicator,
     .realtime:hover .indicator {
-        background-color: var(--hpp-highlight-color);
+        background-color: var(--hpp-bg-highlight-color);
     }
 
     .edit-time-message {
@@ -468,7 +496,7 @@
 
     .post-content.new .indicator,
     .post-content.target .indicator {
-        background-color: var(--hpp-highlight-color);
+        background-color: var(--hpp-bg-highlight-color);
     }
 
     .post-content .post-menu.dropdown a {
@@ -503,7 +531,7 @@
 
     .btn:not(:disabled).active,
     .btn:not(:disabled):active {
-        background: var(--hpp-highlight-color);
+        background: var(--hpp-bg-highlight-color);
     }
 
     .email a,
