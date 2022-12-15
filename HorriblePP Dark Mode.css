@@ -12,7 +12,7 @@
 @name:pt-BR         HorriblePP & Disqus Modo Escuro
 @namespace          https://horriblepp.info
 @run-at             document-end
-@version	        1.0.7
+@version	        1.1.0
 ==/UserStyle== */
 
 @-moz-document regexp("http.*") {
@@ -30,8 +30,8 @@
         --hpp-text-gray: #dddddd;
         --hpp-link-white: #ffffff;
         --hpp-link-visited: #ed565f;
-        --hpp-highlight-color: #03fed3;
-        --hpp-bg-highlight-color: #f5ff04;
+        --hpp-highlight-color: #9b6292;
+        --hpp-bg-highlight-color: #799eca;
         --hpp-bg-primary: #282828;
         --hpp-bg-secondary: #1c1c1c;
         --hpp-bg-tertiary: #080808;
@@ -39,11 +39,11 @@
         --hpp-bg-quinary: #585858;
         --hpp-bg-textarea: #2a2e2e;
         --hpp-box-shadow-color: #181818;
-        --hpp-title: "Cybernated PP 2077";
-        --hpp-mod-title: "Arasaka Corpo";
-        --hpp-motd-title: "Hologram Billboard Ad";
-        --hpp-year: "2077";
-        --hpp-last-update: "October 4th, 2022";
+        --hpp-title: "Frozen PP";
+        --hpp-mod-title: "Ice Giant";
+        --hpp-motd-title: "Drifting Iceberg";
+        --hpp-year: "2022";
+        --hpp-last-update: "December 14th, 2022";
         /*
             THIS IS YOUR WAIFU'S IMAGE URL <https://en.wikipedia.org/wiki/URL>.
             REPLACE EVERYTHING AFTER "--hpp-banner-image: " FOR "none" IF YOU WISH TO REMOVE IT,
@@ -51,7 +51,7 @@
 
             REMEMBER TO LEAVE A SEMICOLON (;) AT THE END
         */
-        --hpp-banner-image: url(https://i.postimg.cc/V6kNv8rF/rebecca-cyberpunk-edgerunners-art-4k-wallpaper-uhdpaper-com-601-1-i.jpg);
+        --hpp-banner-image: url(https://i.postimg.cc/1zxLc3PQ/rukia-bankai-bleach-thousand-year-blood-war-4k-wallpaper-uhdpaper-com-814-1-i.jpg);
     }
 }
 
@@ -117,7 +117,8 @@
         position: absolute;
         font-size: 3em;
         font-weight: bold;
-        text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+        text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black,
+            -1px 1px 0 black;
         text-align: center;
         color: var(--hpp-text-white);
         left: 50%;
@@ -175,6 +176,14 @@
 
 @-moz-document url-prefix("https://disqus.com/embed/comments/?base=default&f=horriblepp")
 {
+    :root {
+        /*
+            OVERRIDING DISQUS DEFAULT VARIABLES
+        */
+        --publisher-color: var(--hpp-highlight-color) !important;
+        --publisher-color-safe: var(--hpp-highlight-color) !important;
+    }
+    
     body {
         color: var(--hpp-text-white);
     }
@@ -203,11 +212,6 @@
         color: var(--hpp-highlight-color) !important;
     }
 
-    .textarea {
-        color: var(--hpp-text-white);
-        background-color: var(--hpp-bg-textarea);
-    }
-
     .highlighted > .post-content {
         padding: 12px;
         border-radius: 0px;
@@ -227,35 +231,25 @@
         background-color: var(--hpp-bg-secondary);
     }
 
-    .moderator {
+    .embed-refresh .badge.moderator {
         font-size: 0px;
+        padding: 0.2rem 0.2rem 0 0.2rem;
+        background-color: var(--hpp-bg-highlight-color);
     }
 
-    .moderator::before {
-        font-size: 10px;
+    .embed-refresh .badge.moderator::before {
+        font-size: 1rem;
         content: var(--hpp-mod-title);
         text-transform: uppercase;
+        color: var(--hpp-highlight-color);
     }
 
-    .upvoters-outer:before,
-    .upvoters-outer:after {
+    .voters-outer:before,
+    .voters-outer:after {
         background-image: none;
     }
 
-    .upvoters {
-        background-color: var(--hpp-bg-secondary);
-        border: 2px solid var(--box-shadow-colow);
-    }
-
-    .upvoters .username {
-        color: var(--hpp-link-white) !important;
-    }
-
-    .upvoters .user:hover {
-        background-color: var(--hpp-bg-quaternary);
-    }
-
-    .upvoters .user:hover .username {
+    .voters .user:hover .username {
         color: var(--hpp-highlight-color) !important;
     }
 
@@ -279,12 +273,32 @@
         color: var(--hpp-highlight-color);
     }
 
-    a.privacy-policy {
+    .dark .nav-primary--refresh .comment-count {
         color: var(--hpp-link-white);
     }
 
-    a.privacy-policy:hover {
+    .dark .nav-tab > a,
+    .dark .user-menu .dropdown-toggle-wrapper .username--refresh,
+    .dark .post-menu .dropdown-toggle-wrapper .username--refresh {
+        color: var(--hpp-link-white);
+    }
+
+    .dark .user-menu:hover .caret--refresh,
+    .dark .user-menu:hover .dropdown-toggle-wrapper .username--refresh,
+    .dark .post-menu:hover .dropdown-toggle-wrapper .username--refresh {
         color: var(--hpp-highlight-color);
+    }
+
+    .dark .caret {
+        opacity: 1;
+    }
+
+    a .caret {
+        border-top: 5px solid var(--hpp-link-white) !important;
+    }
+
+    a:hover .caret {
+        border-top: 5px solid var(--hpp-highlight-color) !important;
     }
 
     .notification-menu:not(.unread) .notification-icon {
@@ -307,19 +321,6 @@
         color: var(--hpp-link-white);
     }
 
-    .user-menu:hover .username,
-    .sorting a:hover {
-        color: var(--hpp-highlight-color) !important;
-    }
-
-    a .caret {
-        border-top: 4px solid var(--hpp-link-white) !important;
-    }
-
-    a:hover .caret {
-        border-top: 4px solid var(--hpp-highlight-color) !important;
-    }
-
     .nav-primary .nav-tab--primary .dropdown-menu {
         background-color: var(--hpp-bg-secondary);
         border: 2px solid var(--hpp-box-shadow-color);
@@ -334,49 +335,175 @@
         color: var(--hpp-highlight-color) !important;
     }
 
-    #recommend-button.label-recommend,
-    #recommend-button.label-recommended {
-        color: var(--hpp-link-white);
+    .dark .post-actions {
+        background: rgb(255, 255, 255);
     }
 
-    .thread-likes .label-count {
+    .form-refresh .post-action__button.post-action__button {
         background-color: var(--hpp-bg-highlight-color);
-        color: var(--hpp-link-white);
+        border-top: solid 2px var(--hpp-bg-highlight-color);
     }
 
-    #recommend-button:hover .label-recommend,
-    #recommend-button:hover .label-recommended {
-        color: var(--hpp-highlight-color) !important;
+    .favorite-button-toggle,
+    .favorite-button-toggle:hover,
+    .favorite-button-toggle.upvoted {
+        border: 0;
     }
 
-    #recommend-button:hover .label-count {
-        color: var(--hpp-link-white);
+    .favorite-button-toggle.upvoted {
+        background-color: initial;
     }
 
-    .nav-secondary .nav-tab--secondary .dropdown-menu {
-        background-color: var(--hpp-bg-secondary);
-        border: 2px solid var(--hpp-box-shadow-color);
+    .favorite-button-toggle:hover .favorite-icon-refresh,
+    .favorite-button-toggle.upvoted .favorite-icon-refresh {
+        background-color: var(--hpp-highlight-color);
     }
 
-    .nav-secondary .nav-tab--secondary .dropdown-menu li a {
-        color: var(--hpp-link-white) !important;
+    .favorite-button-toggle:hover .label-count-refresh,
+    .favorite-button-toggle.upvoted .label-count-refresh {
+        color: var(--hpp-highlight-color);
     }
 
-    .nav-secondary .nav-tab--secondary .dropdown-menu li a:hover {
-        background-color: var(--hpp-bg-quaternary);
-        color: var(--hpp-highlight-color) !important;
+    .thread-share-bar-buttons-refresh:hover .share-button-toggle,
+    .thread-share-bar-buttons-refresh:hover .share-dropdown-refresh {
+        color: var(--hpp-highlight-color);
+    }
+
+    .sort-menu-refresh__item.selected {
+        color: var(--hpp-highlight-color);
+        border-bottom: 3px solid var(--hpp-highlight-color);
+    }
+
+    .sort-menu-refresh__item.selected a:hover {
+        color: var(--hpp-bg-highlight-color);
+    }
+
+    .dark .follow-user {
+        background-color: var(--hpp-link-white);
+    }
+
+    .follow-btn.btn-small.hover-card.edit {
+        color: var(--hpp-highlight-color);
+    }
+
+    .follow-user.is-following,
+    .follow-user:hover,
+    .tooltip .avatar--refresh img.user--refresh {
+        background-color: var(--hpp-highlight-color);
+    }
+
+    .publisher-background-color-refresh {
+        background-color: var(--hpp-highlight-color) !important;
+    }
+
+    .edit-time-message {
+        color: var(--hpp-highlight-color);
     }
 
     .has-edit {
         color: var(--hpp-text-gray);
     }
 
-    .comment__footer .reply a,
-    .comment__footer .edit a,
-    .comment__footer .comment__share a,
-    .comment__header a,
-    .collapse a span {
+    .embed-refresh .post-content.new .indicator,
+    .embed-refresh .post-content.target .indicator {
+        background-color: var(--hpp-bg-highlight-color);
+    }
+
+    .dark .post-content .post-menu .collapse a,
+    .dark .post-content .post-menu .expand a {
         color: var(--hpp-link-white) !important;
+        opacity: 1;
+    }
+
+    .dark .post-content .post-menu .collapse a:hover,
+    .dark .post-content .post-menu .expand a:hover {
+        color: var(--hpp-highlight-color) !important;
+        opacity: 1;
+    }
+
+    .dark .post-content .post-menu .dropdown-toggle .dropdown-toggle-icon {
+        background-color: var(--hpp-link-white) !important;
+    }
+
+    .dark .post-content .post-menu .dropdown-toggle .dropdown-toggle-icon:hover {
+        background-color: var(--hpp-highlight-color) !important;
+    }
+
+    .post.minimized {
+        display: none;
+    }
+
+    .avatar .user,
+    .avatar .user-avatar {
+        background: var(--hpp-bg-secondary) !important;
+        border-radius: 10px !important;
+    }
+
+    .textarea {
+        color: var(--hpp-text-white);
+        background-color: var(--hpp-bg-textarea);
+    }
+
+    .textarea-wrapper {
+        border: 2px solid var(--hpp-box-shadow-color);
+    }
+
+    .textarea-outer-wrapper {
+        min-height: 60px;
+    }
+
+    .placeholder {
+        color: var(--secondary-text-color);
+    }
+
+    .post-content .post-message a {
+        color: var(--hpp-highlight-color) !important;
+    }
+
+    .post-content .post-message a:visited {
+        color: var(--hpp-link-visited) !important;
+    }
+
+    .post-content .post-body spoiler:focus,
+    .post-content .post-body spoiler:hover {
+        background: var(--hpp-bg-secondary);
+        color: inherit;
+    }
+
+    .post-content.new .indicator,
+    .post-content.target .indicator {
+        background-color: var(--hpp-bg-highlight-color);
+    }
+
+    .post-content .post-menu.dropdown a {
+        color: var(--hpp-link-white) !important;
+    }
+
+    .post-content .post-menu.dropdown a:hover {
+        color: var(--hpp-highlight-color) !important;
+    }
+
+    .post-content .post-menu .dropdown-menu a {
+        background-color: var(--hpp-bg-secondary);
+        color: var(--hpp-link-white) !important;
+    }
+
+    .post-content .post-menu .dropdown-menu {
+        background-color: var(--hpp-bg-secondary);
+        border: 2px solid var(--hpp-box-shadow-color);
+    }
+
+    .post-content .post-menu .dropdown-menu a:hover {
+        background-color: var(--hpp-bg-quaternary);
+        color: var(--hpp-highlight-color) !important;
+    }
+
+    .comment__header a {
+        color: var(--hpp-link-white) !important;
+    }
+
+    .comment__header a:hover {
+        color: var(--hpp-highlight-color) !important;
     }
 
     .comment__header .state-byline {
@@ -392,31 +519,66 @@
         transition: none;
     }
 
-    .post-votes .vote-up,
-    .post-votes .vote-up .count,
-    .post-votes .vote-down,
-    .post-votes .vote-down .count {
-        color: var(--hpp-text-gray);
+    .comment__footer .vote-up,
+    .comment__footer .vote-up .count,
+    .comment__footer .vote-down,
+    .comment__footer .vote-down .count,
+    .comment__footer .edit a,
+    .comment__footer .reply a,
+    .comment__footer .comment__share a {
+        color: var(--hpp-text-gray) !important;
+        background: none !important;
+        border: none !important;
+    }
+
+    .comment__footer .vote-up:hover,
+    .comment__footer .vote-down:hover {
+        padding: 3px 8px 3px 8px !important;
+    }
+
+    .comment__footer .vote-up:hover,
+    .comment__footer .vote-up:hover .count,
+    .comment__footer .vote-down:hover,
+    .comment__footer .vote-down:hover .count,
+    .comment__footer .edit a:hover,
+    .comment__footer .reply a:hover,
+    .comment__footer .comment__share a:hover {
+        color: var(--hpp-highlight-color) !important;
+        background: none !important;
+        border: none !important;
+    }
+
+    .comment__footer .vote-up:hover .control,
+    .comment__footer .vote-down:hover .control {
+        background-color: var(--hpp-highlight-color) !important;
+    }
+
+    .comment__footer .vote-up.upvoted,
+    .comment__footer .vote-down.downvoted {
+        background: none !important;
+        border: none !important;
+    }
+
+    .comment__footer .vote-up.upvoted .control,
+    .comment__footer .vote-down.downvoted .control {
+        background-color: var(--hpp-highlight-color) !important;
+    }
+
+    .comment__footer .vote-up.upvoted .count,
+    .comment__footer .vote-down.downvoted .count {
+        color: var(--hpp-highlight-color) !important;
     }
 
     .comment__footer .share__button {
         background-color: var(--hpp-bg-secondary) !important;
-        color: var(--hpp-link-white) !important;
     }
 
-    .comment__footer .vote-down:hover,
-    .comment__footer .vote-down:hover .count,
-    .comment__footer .vote-up:hover,
-    .comment__footer .vote-up:hover .count,
-    .comment__footer .reply a:hover,
-    .comment__footer .edit a:hover,
-    .comment__footer .comment__share a:hover,
-    .comment__header a:hover,
-    .collapse a:hover span {
-        color: var(--hpp-highlight-color) !important;
+    .comment__footer .share__button::before {
+        color: var(--hpp-text-gray) !important;
     }
 
-    .comment__footer .share__button:hover {
+    .comment__footer .share__button:hover,
+    .comment__footer .share__button:hover::before {
         color: var(--hpp-highlight-color) !important;
     }
 
@@ -424,14 +586,6 @@
     .icon-export:hover,
     .label:hover {
         color: var(--hpp-highlight-color);
-    }
-
-    .dropdown-toggle {
-        color: var(--hpp-link-white) !important;
-    }
-
-    .tab-conversation.active > a {
-        color: var(--hpp-link-white) !important;
     }
 
     .alert.alert--realtime,
@@ -477,50 +631,6 @@
         color: var(--hpp-highlight-color);
     }
 
-    .realtime .indicator,
-    .realtime:hover .indicator {
-        background-color: var(--hpp-bg-highlight-color);
-    }
-
-    .edit-time-message {
-        color: var(--hpp-highlight-color);
-    }
-
-    .post.minimized {
-        display: none;
-    }
-
-    .post-content .post-message a {
-        color: var(--hpp-highlight-color) !important;
-    }
-
-    .post-content.new .indicator,
-    .post-content.target .indicator {
-        background-color: var(--hpp-bg-highlight-color);
-    }
-
-    .post-content .post-menu.dropdown a {
-        color: var(--hpp-link-white) !important;
-    }
-
-    .post-content .post-menu.dropdown a:hover {
-        color: var(--hpp-highlight-color) !important;
-    }
-
-    .post-content .post-menu .dropdown-menu a {
-        background-color: var(--hpp-bg-secondary);
-        color: var(--hpp-link-white) !important;
-    }
-
-    .post-content .post-menu .dropdown-menu {
-        border: 2px solid var(--hpp-box-shadow-color);
-    }
-
-    .post-content .post-menu .dropdown-menu a:hover {
-        background-color: var(--hpp-bg-quaternary);
-        color: var(--hpp-highlight-color) !important;
-    }
-
     .help-icon {
         border: 2px solid var(--hpp-box-shadow-color);
     }
@@ -534,36 +644,20 @@
         background: var(--hpp-bg-highlight-color);
     }
 
-    .email a,
-    .install a,
-    .do-not-sell a,
-    .disqus-footer__logo a {
-        color: var(--hpp-link-white);
+    .disqus-footer .email a span,
+    .disqus-footer .privacy a span,
+    .disqus-footer .do-not-sell a span {
+        color: var(--hpp-link-white) !important;
     }
 
-    .email a:hover,
-    .install a:hover,
-    .do-not-sell a:hover,
-    .disqus-footer__logo a:hover {
-        color: var(--hpp-highlight-color);
-    }
-
-    .placeholder {
-        color: var(--secondary-text-color);
+    .disqus-footer .email a:hover span,
+    .disqus-footer .privacy a:hover span,
+    .disqus-footer .do-not-sell a:hover span {
+        color: var(--hpp-highlight-color) !important;
     }
 
     .postbox section label {
         color: var(--hpp-text-white);
-    }
-
-    .textarea-wrapper {
-        background-color: var(--hpp-bg-primary);
-        border: 2px solid var(--hpp-box-shadow-color);
-    }
-
-    .post-actions {
-        background-color: var(--hpp-bg-primary);
-        border-top: solid 2px var(--hpp-box-shadow-color);
     }
 
     .input--text {
@@ -571,21 +665,7 @@
         border: 2px solid var(--hpp-box-shadow-color);
     }
 
-    .post-content .post-body spoiler:focus,
-    .post-content .post-body spoiler:hover {
-        background: var(--hpp-bg-secondary);
-        color: inherit;
-    }
-
     .children .show-children-wrapper .show-children {
         color: var(--hpp-highlight-color);
-    }
-
-    .post-message a:visited {
-        color: var(--hpp-link-visited) !important;
-    }
-
-    .avatar .user {
-        background: var(--hpp-bg-secondary) !important;
     }
 }
