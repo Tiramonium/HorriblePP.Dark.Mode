@@ -4,7 +4,6 @@
 @description:pt-BR  Muda o esquema de cores e as cores de fundo padrão para variações mais escuras
 @icon               https://horriblepp.info/favicon.png
 @license            CC0 - Public Domain
-@match              https://horriblepp.info
 @match              https://beta.horriblepp.info
 @match              https://freesecure.timeanddate.com/clock/i7hlsocf/n248/fs26/fceee/tct/pct/th1/ta1
 @match              https://disqus.com/embed/comments/?base=default&f=horriblepp
@@ -12,7 +11,7 @@
 @name:pt-BR         HorriblePP & Disqus Modo Escuro
 @namespace          https://horriblepp.info
 @run-at             document-end
-@version	        1.1.0
+@version	        1.1.1
 ==/UserStyle== */
 
 @-moz-document regexp("http.*") {
@@ -43,7 +42,7 @@
         --hpp-mod-title: "Ice Giant";
         --hpp-motd-title: "Drifting Iceberg";
         --hpp-year: "2022";
-        --hpp-last-update: "December 14th, 2022";
+        --hpp-last-update: "December 19th, 2022";
         /*
             THIS IS YOUR WAIFU'S IMAGE URL <https://en.wikipedia.org/wiki/URL>.
             REPLACE EVERYTHING AFTER "--hpp-banner-image: " FOR "none" IF YOU WISH TO REMOVE IT,
@@ -183,7 +182,7 @@
         --publisher-color: var(--hpp-highlight-color) !important;
         --publisher-color-safe: var(--hpp-highlight-color) !important;
     }
-    
+
     body {
         color: var(--hpp-text-white);
     }
@@ -217,13 +216,19 @@
         border-radius: 0px;
     }
 
-    .highlighted-comment-header {
-        font-size: 0px !important;
+    .highlighted .pinned-icon {
+        background-color: transparent !important;
+        -webkit-mask-image: none !important;
+        mask-image: none !important;
+        width: 100% !important;
+        top: -12px !important;
     }
 
-    .highlighted-comment-header::before {
-        font-size: initial !important;
+    .highlighted .pinned-icon::before {
         content: var(--hpp-motd-title);
+        font-size: 1.5rem !important;
+        font-weight: bold;
+        color: var(--hpp-bg-highlight-color);
     }
 
     .highlighted-post .highlighted .post-content,
