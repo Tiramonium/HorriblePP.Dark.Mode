@@ -25,7 +25,7 @@ I recommend installing from UserStyles because the Stylus extension detects when
 
 1. Install from UserStyles
 
-    - Visit the [UserStyles](https://userstyles.org/styles/216576/horriblepp-dark-mode?utm_campaign=stylish_stylepage) page
+    - Visit the [UserStyles](https://userstyles.org/styles/256744/horriblepp-dark-mode-classic) page
     - Click on "Install Style"
     - If everything works, you should see the style being updated in real time while visiting HPP
 
