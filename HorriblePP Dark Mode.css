@@ -4,7 +4,6 @@
 @description:pt-BR  Muda o esquema de cores e as cores de fundo padrão para variações mais escuras
 @icon               https://horriblepp.info/favicon.png
 @license            CC0 - Public Domain
-@match              https://horriblepp.info
 @match              https://beta.horriblepp.info
 @match              https://freesecure.timeanddate.com/clock/i7hlsocf/n248/fs26/fceee/tct/pct/th1/ta1
 @match              https://disqus.com/embed/comments/?base=default&f=horriblepp
@@ -12,7 +11,7 @@
 @name:pt-BR         HorriblePP & Disqus Modo Escuro
 @namespace          https://horriblepp.info
 @run-at             document-end
-@version	        1.0.7
+@version	        1.1.0b
 ==/UserStyle== */
 
 @-moz-document regexp("http.*") {
@@ -30,8 +29,8 @@
         --hpp-text-gray: #dddddd;
         --hpp-link-white: #ffffff;
         --hpp-link-visited: #ed565f;
-        --hpp-highlight-color: #03fed3;
-        --hpp-bg-highlight-color: #f5ff04;
+        --hpp-highlight-color: #9b6292;
+        --hpp-bg-highlight-color: #799eca;
         --hpp-bg-primary: #282828;
         --hpp-bg-secondary: #1c1c1c;
         --hpp-bg-tertiary: #080808;
@@ -39,11 +38,11 @@
         --hpp-bg-quinary: #585858;
         --hpp-bg-textarea: #2a2e2e;
         --hpp-box-shadow-color: #181818;
-        --hpp-title: "Cybernated PP 2077";
-        --hpp-mod-title: "Arasaka Corpo";
-        --hpp-motd-title: "Hologram Billboard Ad";
-        --hpp-year: "2077";
-        --hpp-last-update: "October 4th, 2022";
+        --hpp-title: "Frozen PP";
+        --hpp-mod-title: "Ice Giant";
+        --hpp-motd-title: "Drifting Iceberg";
+        --hpp-year: "2022";
+        --hpp-last-update: "December 25th, 2022";
         /*
             THIS IS YOUR WAIFU'S IMAGE URL <https://en.wikipedia.org/wiki/URL>.
             REPLACE EVERYTHING AFTER "--hpp-banner-image: " FOR "none" IF YOU WISH TO REMOVE IT,
@@ -51,7 +50,7 @@
 
             REMEMBER TO LEAVE A SEMICOLON (;) AT THE END
         */
-        --hpp-banner-image: url(https://i.postimg.cc/V6kNv8rF/rebecca-cyberpunk-edgerunners-art-4k-wallpaper-uhdpaper-com-601-1-i.jpg);
+        --hpp-banner-image: url(https://i.postimg.cc/1zxLc3PQ/rukia-bankai-bleach-thousand-year-blood-war-4k-wallpaper-uhdpaper-com-814-1-i.jpg);
     }
 }
 
@@ -117,7 +116,8 @@
         position: absolute;
         font-size: 3em;
         font-weight: bold;
-        text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black;
+        text-shadow: 2px 0 0 black, -2px 0 0 black, 0 2px 0 black, 0 -2px 0 black, 1px 1px black, -1px -1px 0 black, 1px -1px 0 black,
+            -1px 1px 0 black;
         text-align: center;
         color: var(--hpp-text-white);
         left: 50%;
@@ -175,6 +175,14 @@
 
 @-moz-document url-prefix("https://disqus.com/embed/comments/?base=default&f=horriblepp")
 {
+    :root {
+        /*
+            OVERRIDING DISQUS DEFAULT VARIABLES
+        */
+        --publisher-color: var(--hpp-highlight-color) !important;
+        --publisher-color-safe: var(--hpp-highlight-color) !important;
+    }
+
     body {
         color: var(--hpp-text-white);
     }
@@ -203,11 +211,6 @@
         color: var(--hpp-highlight-color) !important;
     }
 
-    .textarea {
-        color: var(--hpp-text-white);
-        background-color: var(--hpp-bg-textarea);
-    }
-
     .highlighted > .post-content {
         padding: 12px;
         border-radius: 0px;
@@ -227,64 +230,40 @@
         background-color: var(--hpp-bg-secondary);
     }
 
-    .moderator {
-        font-size: 0px;
+    /* legacy 'show more replies' link under posts */
+    .dark .children .show-children-wrapper .show-children {
+        color: var(--hpp-link-white);
+        text-decoration: none;
     }
 
-    .moderator::before {
-        font-size: 10px;
+    .dark .children .show-children-wrapper .show-children:hover {
+        color: var(--hpp-highlight-color);
+    }
+
+    :not(.embed-refresh) .dark .badge.moderator {
+        font-size: 0px;
+        padding: 0.2rem 0.2rem 0 0.2rem;
+        background-color: var(--hpp-bg-highlight-color);
+    }
+
+    :not(.embed-refresh) .dark .badge.moderator::before {
+        font-size: 1rem;
         content: var(--hpp-mod-title);
         text-transform: uppercase;
+        color: var(--hpp-highlight-color);
     }
 
-    .upvoters-outer:before,
-    .upvoters-outer:after {
+    .voters-outer:before,
+    .voters-outer:after {
         background-image: none;
     }
 
-    .upvoters {
-        background-color: var(--hpp-bg-secondary);
-        border: 2px solid var(--box-shadow-colow);
-    }
-
-    .upvoters .username {
-        color: var(--hpp-link-white) !important;
-    }
-
-    .upvoters .user:hover {
-        background-color: var(--hpp-bg-quaternary);
-    }
-
-    .upvoters .user:hover .username {
+    .voters .user:hover .username {
         color: var(--hpp-highlight-color) !important;
     }
 
     .active .publisher-nav-color::after {
         background: var(--hpp-bg-highlight-color) !important;
-    }
-
-    .community-name,
-    .community-name:hover {
-        color: transparent !important;
-        font-size: 0px !important;
-    }
-
-    .community-name::before {
-        color: var(--hpp-link-white) !important;
-        content: var(--hpp-title);
-        font-size: initial !important;
-    }
-
-    .community-name::before:hover {
-        color: var(--hpp-highlight-color);
-    }
-
-    a.privacy-policy {
-        color: var(--hpp-link-white);
-    }
-
-    a.privacy-policy:hover {
-        color: var(--hpp-highlight-color);
     }
 
     .notification-menu:not(.unread) .notification-icon {
@@ -307,63 +286,83 @@
         color: var(--hpp-link-white);
     }
 
-    .user-menu:hover .username,
-    .sorting a:hover {
+    .user-menu:hover .username {
         color: var(--hpp-highlight-color) !important;
     }
 
-    a .caret {
-        border-top: 4px solid var(--hpp-link-white) !important;
+    .avatar .user {
+        background: var(--hpp-bg-secondary) !important;
     }
 
-    a:hover .caret {
-        border-top: 4px solid var(--hpp-highlight-color) !important;
+    .placeholder {
+        color: var(--secondary-text-color);
     }
 
-    .nav-primary .nav-tab--primary .dropdown-menu {
-        background-color: var(--hpp-bg-secondary);
+    .postbox section label {
+        color: var(--hpp-text-white);
+    }
+
+    .textarea {
+        color: var(--hpp-text-white);
+        background-color: var(--hpp-bg-textarea);
+    }
+
+    .textarea-wrapper {
+        background-color: var(--hpp-bg-primary);
         border: 2px solid var(--hpp-box-shadow-color);
     }
 
-    .nav-primary .nav-tab--primary .dropdown-menu li a {
-        color: var(--hpp-link-white) !important;
+    .dark .post-actions {
+        background: #ffffff;
     }
 
-    .nav-primary .nav-tab--primary .dropdown-menu li a:hover {
-        background-color: var(--hpp-bg-quaternary);
-        color: var(--hpp-highlight-color) !important;
+    .post-actions {
+        border-top: 2px solid #ffffff;
     }
 
-    #recommend-button.label-recommend,
-    #recommend-button.label-recommended {
-        color: var(--hpp-link-white);
+    .post-content .post-menu .collapse a,
+    .post-content .post-menu .expand a {
+        top: -4px;
     }
 
-    .thread-likes .label-count {
-        background-color: var(--hpp-bg-highlight-color);
-        color: var(--hpp-link-white);
+    .post-menu .caret,
+    .user-menu .caret {
+        top: 17px;
     }
 
-    #recommend-button:hover .label-recommend,
-    #recommend-button:hover .label-recommended {
-        color: var(--hpp-highlight-color) !important;
+    .dark .caret {
+        border-top: 4px solid var(--hpp-link-white) !important;
+        opacity: 1;
     }
 
-    #recommend-button:hover .label-count {
-        color: var(--hpp-link-white);
+    .dark a:hover .caret {
+        border-top: 4px solid var(--hpp-highlight-color) !important;
     }
 
+    .nav-primary .nav-tab--primary .dropdown-menu,
     .nav-secondary .nav-tab--secondary .dropdown-menu {
         background-color: var(--hpp-bg-secondary);
         border: 2px solid var(--hpp-box-shadow-color);
     }
 
+    .nav-primary .nav-tab--primary .dropdown-menu li a,
     .nav-secondary .nav-tab--secondary .dropdown-menu li a {
         color: var(--hpp-link-white) !important;
     }
 
+    .nav-primary .nav-tab--primary .dropdown-menu li a:hover,
     .nav-secondary .nav-tab--secondary .dropdown-menu li a:hover {
         background-color: var(--hpp-bg-quaternary);
+        color: var(--hpp-highlight-color) !important;
+    }
+
+    .dark .nav-tab > a,
+    .dark .share-bar .thread-share-bar-buttons .dropdown-toggle {
+        color: var(--hpp-link-white) !important;
+    }
+
+    .dark .nav-tab > a:hover,
+    .dark .share-bar .thread-share-bar-buttons .dropdown-toggle:hover {
         color: var(--hpp-highlight-color) !important;
     }
 
@@ -371,12 +370,12 @@
         color: var(--hpp-text-gray);
     }
 
-    .comment__footer .reply a,
-    .comment__footer .edit a,
-    .comment__footer .comment__share a,
-    .comment__header a,
-    .collapse a span {
+    .comment__header a {
         color: var(--hpp-link-white) !important;
+    }
+
+    .comment__header a:hover {
+        color: var(--hpp-highlight-color) !important;
     }
 
     .comment__header .state-byline {
@@ -388,46 +387,46 @@
         content: "Featured by " var(--hpp-title);
     }
 
-    .use-opacity-transitions .post-content footer .voting .control {
+    .use-opacity-transitions .dropdown-menu {
         transition: none;
     }
 
-    .post-votes .vote-up,
-    .post-votes .vote-up .count,
-    .post-votes .vote-down,
-    .post-votes .vote-down .count {
-        color: var(--hpp-text-gray);
+    .comment__footer .vote-up,
+    .comment__footer .vote-up .count,
+    .comment__footer .vote-down,
+    .comment__footer .vote-down .count,
+    .comment__footer .edit a,
+    .comment__footer .reply a,
+    .comment__footer .comment__share a,
+    .comment__footer .share__button,
+    .comment__footer .share__button::before {
+        color: var(--hpp-link-white) !important;
     }
 
     .comment__footer .share__button {
-        background-color: var(--hpp-bg-secondary) !important;
-        color: var(--hpp-link-white) !important;
+        background-color: transparent !important;
+        opacity: 1 !important;
     }
 
-    .comment__footer .vote-down:hover,
-    .comment__footer .vote-down:hover .count,
     .comment__footer .vote-up:hover,
     .comment__footer .vote-up:hover .count,
-    .comment__footer .reply a:hover,
+    .comment__footer .vote-down:hover,
+    .comment__footer .vote-down:hover .count,
     .comment__footer .edit a:hover,
+    .comment__footer .reply a:hover,
     .comment__footer .comment__share a:hover,
-    .comment__header a:hover,
-    .collapse a:hover span {
+    .comment__footer .share__button:hover,
+    .comment__footer .share__button:hover::before,
+    .comment__header a:hover {
         color: var(--hpp-highlight-color) !important;
     }
 
-    .comment__footer .share__button:hover {
-        color: var(--hpp-highlight-color) !important;
+    .comment__footer .vote-up.upvoted .count {
+        color: #2e9fff !important;
     }
 
-    .icon-cog:hover,
-    .icon-export:hover,
-    .label:hover {
-        color: var(--hpp-highlight-color);
-    }
-
-    .dropdown-toggle {
-        color: var(--hpp-link-white) !important;
+    .comment__footer .vote-down.downvoted .count {
+        color: #f05f70 !important;
     }
 
     .tab-conversation.active > a {
@@ -482,16 +481,18 @@
         background-color: var(--hpp-bg-highlight-color);
     }
 
-    .edit-time-message {
-        color: var(--hpp-highlight-color);
-    }
-
-    .post.minimized {
-        display: none;
-    }
-
     .post-content .post-message a {
         color: var(--hpp-highlight-color) !important;
+    }
+
+    .post-content .post-message a:visited {
+        color: var(--hpp-link-visited) !important;
+    }
+
+    .dark .post-content .post-body spoiler:focus,
+    .dark .post-content .post-body spoiler:hover {
+        background: transparent;
+        color: inherit;
     }
 
     .post-content.new .indicator,
@@ -499,12 +500,27 @@
         background-color: var(--hpp-bg-highlight-color);
     }
 
-    .post-content .post-menu.dropdown a {
+    .dark .post-content .post-menu .collapse a,
+    .dark .post-content .post-menu .expand a,
+    .dark .post-content .post-menu.open .dropdown-toggle {
         color: var(--hpp-link-white) !important;
+        opacity: 1;
     }
 
-    .post-content .post-menu.dropdown a:hover {
+    .dark .post-content .post-menu .collapse a:hover,
+    .dark .post-content .post-menu .expand a:hover,
+    .dark .post-content .post-menu.open .dropdown-toggle:hover {
         color: var(--hpp-highlight-color) !important;
+    }
+
+    .dark .post-content .post-menu.open .dropdown-toggle,
+    .dark .post-content .post-menu.open .dropdown-toggle:hover {
+        border-left: 2px solid var(--hpp-link-white);
+    }
+
+    .post-content .post-menu .dropdown-menu {
+        background-color: var(--hpp-bg-secondary);
+        border: 2px solid var(--hpp-box-shadow-color);
     }
 
     .post-content .post-menu .dropdown-menu a {
@@ -512,80 +528,23 @@
         color: var(--hpp-link-white) !important;
     }
 
-    .post-content .post-menu .dropdown-menu {
-        border: 2px solid var(--hpp-box-shadow-color);
-    }
-
     .post-content .post-menu .dropdown-menu a:hover {
         background-color: var(--hpp-bg-quaternary);
         color: var(--hpp-highlight-color) !important;
     }
 
-    .help-icon {
-        border: 2px solid var(--hpp-box-shadow-color);
-    }
-
-    .help-icon:before {
-        color: var(--hpp-text-white);
-    }
-
-    .btn:not(:disabled).active,
-    .btn:not(:disabled):active {
+    .dark .load-more__button,
+    .dark .load-more__button:hover {
         background: var(--hpp-bg-highlight-color);
+        color: var(--hpp-highlight-color);
+        font-weight: bold;
     }
 
-    .email a,
-    .install a,
-    .do-not-sell a,
-    .disqus-footer__logo a {
+    .disqus-footer .clip {
         color: var(--hpp-link-white);
     }
 
-    .email a:hover,
-    .install a:hover,
-    .do-not-sell a:hover,
-    .disqus-footer__logo a:hover {
+    .disqus-footer .clip:hover {
         color: var(--hpp-highlight-color);
-    }
-
-    .placeholder {
-        color: var(--secondary-text-color);
-    }
-
-    .postbox section label {
-        color: var(--hpp-text-white);
-    }
-
-    .textarea-wrapper {
-        background-color: var(--hpp-bg-primary);
-        border: 2px solid var(--hpp-box-shadow-color);
-    }
-
-    .post-actions {
-        background-color: var(--hpp-bg-primary);
-        border-top: solid 2px var(--hpp-box-shadow-color);
-    }
-
-    .input--text {
-        background-color: var(--hpp-bg-primary);
-        border: 2px solid var(--hpp-box-shadow-color);
-    }
-
-    .post-content .post-body spoiler:focus,
-    .post-content .post-body spoiler:hover {
-        background: var(--hpp-bg-secondary);
-        color: inherit;
-    }
-
-    .children .show-children-wrapper .show-children {
-        color: var(--hpp-highlight-color);
-    }
-
-    .post-message a:visited {
-        color: var(--hpp-link-visited) !important;
-    }
-
-    .avatar .user {
-        background: var(--hpp-bg-secondary) !important;
     }
 }
